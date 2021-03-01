@@ -13,5 +13,6 @@ namespace IMDBapp.Repositories
         public void Post(Producer producer);
         public void Put(int id, Producer producer);
         public void Delete(int id);
+        public Producer GetProducerByMovieId(int movieId);
     }
 }

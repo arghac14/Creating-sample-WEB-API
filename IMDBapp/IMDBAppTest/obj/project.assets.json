@@ -8871,11 +8871,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lenovo\\Desktop\\New folder\\IMDBapp\\IMDBapp\\IMDBAppTest\\IMDBapp.Test.csproj",
+      "projectUniqueName": "C:\\Users\\lenovo\\Desktop\\DeltaX\\assignments-deltax\\IMDBapp\\IMDBapp\\IMDBAppTest\\IMDBapp.Test.csproj",
       "projectName": "IMDBapp.Test",
-      "projectPath": "C:\\Users\\lenovo\\Desktop\\New folder\\IMDBapp\\IMDBapp\\IMDBAppTest\\IMDBapp.Test.csproj",
+      "projectPath": "C:\\Users\\lenovo\\Desktop\\DeltaX\\assignments-deltax\\IMDBapp\\IMDBapp\\IMDBAppTest\\IMDBapp.Test.csproj",
       "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lenovo\\Desktop\\New folder\\IMDBapp\\IMDBapp\\IMDBAppTest\\obj\\",
+      "outputPath": "C:\\Users\\lenovo\\Desktop\\DeltaX\\assignments-deltax\\IMDBapp\\IMDBapp\\IMDBAppTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8892,8 +8892,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\lenovo\\Desktop\\New folder\\IMDBapp\\IMDBapp\\IMDBApp\\IMDBApp.csproj": {
-              "projectPath": "C:\\Users\\lenovo\\Desktop\\New folder\\IMDBapp\\IMDBapp\\IMDBApp\\IMDBApp.csproj"
+            "C:\\Users\\lenovo\\Desktop\\DeltaX\\assignments-deltax\\IMDBapp\\IMDBapp\\IMDBApp\\IMDBApp.csproj": {
+              "projectPath": "C:\\Users\\lenovo\\Desktop\\DeltaX\\assignments-deltax\\IMDBapp\\IMDBapp\\IMDBApp\\IMDBApp.csproj"
             }
           }
         }

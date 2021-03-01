@@ -16,6 +16,9 @@ namespace IMDBapp.Test
                 builder.ConfigureServices(services =>
                 {
                     services.AddScoped(service => MovieMock.MovieRepoMock.Object);
+                    services.AddScoped(service => ActorMock.ActorRepoMock.Object);
+                    services.AddScoped(service => GenreMock.GenreRepoMock.Object);
+                    services.AddScoped(service => ProducerMock.ProducerRepoMock.Object);
                 });
             }))
         {
@@ -29,6 +32,10 @@ namespace IMDBapp.Test
             MovieMock.MockAdd();
             MovieMock.MockUpdate();
             MovieMock.MockDelete();
+            ActorMock.GetActorByMovieId();
+            ProducerMock.GetProducerByMovieId();
+            GenreMock.GetGenreByMovieId();
+
         }
     }
 }

@@ -87,5 +87,19 @@ namespace IMDBapp.Repositories
             var connection = new SqlConnection(_connectionString.IMDBDB);
             connection.Execute(query, new { @Id = id });
         }
+        public Producer GetProducerByMovieId(int movieId)
+        {
+            string query = @"SELECT P.Id
+							,P.Name
+							,P.Bio
+							,P.DOB
+							,P.Gender
+						    FROM Producers AS P
+						    INNER JOIN Movies AS M 
+                            ON P.Id = M.ProducerId
+						    WHERE M.id = @movieId";
+            var connection = new SqlConnection(_connectionString.IMDBDB);
+            return connection.QuerySingle<Producer>(query, new { MovieId = movieId });
+        }
     }
 }

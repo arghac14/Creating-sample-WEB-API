@@ -36,7 +36,6 @@ namespace IMDBapp.Test
             ActorRepoMock.Setup(repo => repo.Delete(It.IsAny<int>()));
         }
 
-
         private static IEnumerable<Actor> ListOfActors()
         {
             var actors = new List<Actor>
@@ -53,26 +52,22 @@ namespace IMDBapp.Test
             return actors;
         }
 
-        public static Dictionary<int, List<int>> MovieActorsMapping()
+        public static List<int> MovieActorsMapping(int movieId)
         {
             var movieActorsMapping = new Dictionary<int, List<int>>
                 {
                     {1, new List<int> {1}}
                 };
-            return movieActorsMapping;
+            return movieActorsMapping[movieId];
         }
-
-        public static List<Actor> GetActorByMovieId(int movieId)
+        public static void GetActorByMovieId()
         {
-            List<Actor> actors = new List<Actor>();
-            var movieActorsMapping = MovieActorsMapping();
-
-            movieActorsMapping[movieId].ForEach(id =>
+            ActorRepoMock.Setup(repo => repo.GetActorsByMovieId(It.IsAny<int>())).Returns((int movieId) =>
             {
-                actors.Add(ListOfActors().Single(a => a.Id == id));
+                var actorIds = MovieActorsMapping(movieId);
+                return ListOfActors().Where(a => actorIds.Contains(a.Id));
             });
-
-            return actors;
         }
+
     }
 }

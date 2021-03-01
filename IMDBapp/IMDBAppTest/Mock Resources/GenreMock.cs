@@ -36,7 +36,6 @@ namespace IMDBapp.Test
             GenreRepoMock.Setup(repo => repo.Delete(It.IsAny<int>()));
         }
 
-
         private static IEnumerable<Genre> ListOfGenres()
         {
             var genres = new List<Genre>
@@ -50,26 +49,22 @@ namespace IMDBapp.Test
             return genres;
         }
 
-        public static Dictionary<int, List<int>> MovieGenresMapping()
+        public static List<int> MovieGenresMapping(int movieId)
         {
             var movieGenresMapping = new Dictionary<int, List<int>>
             {
                 {1, new List<int>{1} }
             };
-            return movieGenresMapping;
-        }    
+            return movieGenresMapping[movieId];
+        }
 
-        public static List<Genre> GetGenreByMovieId(int movieId)
+        public static void GetGenreByMovieId()
         {
-            List<Genre> genres = new List<Genre>();
-            var movieGenresMapping = MovieGenresMapping();
-
-            movieGenresMapping[movieId].ForEach(id =>
+            GenreRepoMock.Setup(repo => repo.GetGenresByMovieId(It.IsAny<int>())).Returns((int movieId) =>
             {
-                genres.Add(ListOfGenres().Single(g => g.Id == id));
+                var genreIds = MovieGenresMapping(movieId);
+                return ListOfGenres().Where(g => genreIds.Contains(g.Id));
             });
-
-            return genres;
         }
 
     }

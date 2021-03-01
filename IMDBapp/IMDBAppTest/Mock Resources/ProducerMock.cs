@@ -21,7 +21,6 @@ namespace IMDBapp.Test
             ProducerRepoMock.Setup(repo => repo.GetById(It.IsAny<int>())).Returns((int id) => ListOfProducers().SingleOrDefault(x => x.Id == id));
         }
 
-
         public static void MockAdd()
         {
             ProducerRepoMock.Setup(repo => repo.Post(It.IsAny<Producer>()));
@@ -54,19 +53,22 @@ namespace IMDBapp.Test
             return producers;
         }
 
-        public static Dictionary<int, int> MovieProducerMapping() => new Dictionary<int, int>
+        public static List<int> MovieProducerMapping(int movieId) 
         {
-            {1, 1}
-        };
+            var movieProducerMapping = new Dictionary<int, List<int>>()
+            {
+                {1, new List<int>{1 } }
+            };
+            return movieProducerMapping[movieId];
+        }
 
-        public static Producer GetProducerByMovieId(int movieId)
+        public static void GetProducerByMovieId()
         {
-            var listOfProducers = ListOfProducers();
-            var movieProducerMapping = MovieProducerMapping();
-
-            var producer = listOfProducers.Where(p=>p.Id == movieProducerMapping[movieId]).First();
-         
-            return producer;
+            ProducerRepoMock.Setup(repo => repo.GetProducerByMovieId(It.IsAny<int>())).Returns((int id) =>
+            {
+                var producerId = MovieProducerMapping(id);
+                return ListOfProducers().Single(p => p.Id == 1);
+            });
         }
     }
 }
